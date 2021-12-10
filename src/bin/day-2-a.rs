@@ -6,7 +6,6 @@ fn main() {
     let entries = data.lines();
 
     let mut depth: i32 = 0;
-    let mut aim: i32 = 0;
     let mut horizontal: i32 = 0;
 
     for e in entries {
@@ -16,12 +15,9 @@ fn main() {
         let value: i32 = v[1].parse().unwrap();
 
         match command {
-          "forward" => {
-            horizontal += value;
-            depth += aim * value;
-          },
-          "up" => aim -= value,
-          "down" => aim += value,
+          "forward" => horizontal += value,
+          "up" => depth -= value,
+          "down" => depth += value,
           &_ => ()
         }
 
